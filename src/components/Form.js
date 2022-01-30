@@ -127,22 +127,23 @@ export default function Form(props) {
     const sendFormData = (formDataSerialized) => {
         // console.log(formDataSerialized, 'formData')
         
-        
-        axios.post(`http://104.154.20.69:5000/predict`, { formDataSerialized })
-        .then(res => {
-            console.log(res, 'res');
-            console.log(res.data, 'res data');
-            let apiResponse = res.data;
-            // this.setState({isLoading: false, isSubmitted: true, apiResponse: res.data})
-            setLoading(false);
-            let level = Math.floor(Math.random() * 5);
-            apiResponse = {level : level, 'name': formDataSerialized["name"]};
-            history.push("/result",{'apiResponse': apiResponse});
-        }).catch(err => { 
-            let level = Math.floor(Math.random() * 5);
-            let apiResponse = {level : level, 'name': formDataSerialized["name"]};
-            history.push("/result",{'apiResponse': apiResponse});
-        })
+        setTimeout(()=>{
+          axios.post(`http://104.154.20.69:5000/predict`, { formDataSerialized })
+          .then(res => {
+              console.log(res, 'res');
+              console.log(res.data, 'res data');
+              let apiResponse = res.data;
+              // this.setState({isLoading: false, isSubmitted: true, apiResponse: res.data})
+              setLoading(false);
+              let level = Math.floor(Math.random() * 5);
+              apiResponse = {level : level, 'name': formDataSerialized["name"]};
+              history.push("/result",{'apiResponse': apiResponse});
+          }).catch(err => { 
+              let level = Math.floor(Math.random() * 5);
+              let apiResponse = {level : level, 'name': formDataSerialized["name"]};
+              history.push("/result",{'apiResponse': apiResponse});
+          })
+        },3000)
 
         // setTimeout(()=>{
         // //   this.setState({isLoading: false, isSubmitted: true, apiResponse: formDataSerialized})
