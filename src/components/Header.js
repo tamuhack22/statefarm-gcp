@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const svgVariants = {
 	initial: {
@@ -68,7 +69,7 @@ const Header = () => {
 				transition={{ delay: 0.2, type: 'spring', stiffness: 120 }}
 				className='title'
 			>
-				<h1>State Farm</h1>
+				<Link to="/"><h1>State Farm</h1></Link>
 			</motion.div>
 		</header>
 	);

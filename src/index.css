@@ -157,3 +157,7 @@ li span.active::before {
 .loaderCycle {
 	height: 10px;
 }
+
+.content-box{
+	text-align: center;
+}

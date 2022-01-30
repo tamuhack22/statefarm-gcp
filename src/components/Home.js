@@ -1,8 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import Loader from './Loader';
-
+import Foot from './Foot'
+// import './styles/base.css';
 
 const buttonVariants = {
 	hover: {
@@ -37,7 +36,8 @@ const containerVariants = {
 	},
 };
 
-const Home = () => {
+
+const Home = (props) => {
 	return (
 		<motion.div
 			className='home container'
@@ -47,15 +47,12 @@ const Home = () => {
 			exit='exit'
 		>
 			<h2>Cut your Health Insurance</h2>
-
-			<Link to='/form'>
-				<motion.button variants={buttonVariants} whileHover='hover'>
+			<div onClick={()=>props.handleOnSubmit()}>
+				<motion.button variants={buttonVariants} whileHover='hover' >
 					Check our Prices
 				</motion.button>
-			</Link>
-
-			<Loader />
-
+			</div>
+            <Foot/>
 			
 		</motion.div>
 	);
